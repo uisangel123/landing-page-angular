@@ -1,1 +1,7 @@
-<p>product-detalle works!</p>
+<ng-container *ngIf="!loading" >
+  <h1>nombre: {{producto?.name}}</h1>
+  <h3>precio: {{producto?.price | currency}}</h3>
+  <h3 *ngIf="producto?.description">descripcion: {{producto?.description}}</h3>
+</ng-container>
+<ng-container *ngIf="loading" >cargando informacion</ng-container>
+

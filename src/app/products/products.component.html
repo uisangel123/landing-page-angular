@@ -12,15 +12,18 @@
           <th scope="col">#</th>
           <th scope="col">Productor</th>
           <th scope="col">Precio</th>
+          <th scope="col">descripcion</th>
           <th scope="col">Detalle</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>celuk</td>
-          <td>$300.000</td>
-          <td><button class="btn btn-outline-primary" type="button" ><a href="productos/dcdcdc">Detalle</a></button></td>
+        <tr *ngFor="let producto of productsList" >
+          <th scope="row">{{producto.id}}</th>
+          <td>{{producto.name}}</td>
+          <td>{{producto.price | currency }}</td>
+          <td>{{producto.description}}</td>
+
+          <td><a href="productos/{{producto.id}}" ><button class="btn btn-outline-primary" type="button"   >Detalle</button></a></td>
         </tr>
         </tbody>
 
