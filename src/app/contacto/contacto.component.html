@@ -1,1 +1,26 @@
-<p>contacto works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Contacto</h1>
+      <p>Si tienes alguna duda o sugerencia, no dudes en ponerte en contacto con nosotros.</p>
+      <div class="form-group">
+        <form [formGroup]="formularioContacto" (ngSubmit)="enviar()">
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input [ngClass]="{'is-invalid': hasErrors('nombre','required') || hasErrors('nombre','minlength') }" type="text" class="form-control" id="name" formControlName="nombre" >
+            <div  class="text-danger" *ngIf="hasErrors('nombre','required')" >nombre requerido</div>
+            <div  class="text-danger" *ngIf="hasErrors('nombre','minlength')" >nombre requiere minimo 3 caracteres</div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input [ngClass]="{'is-invalid': hasErrors('email','required') || hasErrors('email','email') }"
+            type="email" class="form-control" id="email" formControlName="email" >
+            <div  class="text-danger" *ngIf="hasErrors('email','email')" >email formato invalido</div>
+            <div  class="text-danger" *ngIf="hasErrors('email','required')" >email requerido</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

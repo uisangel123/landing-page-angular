@@ -20,7 +20,7 @@
         <tr *ngFor="let producto of productsList" >
           <th scope="row">{{producto.id}}</th>
           <td>{{producto.name}}</td>
-          <td>{{producto.price | currency }}</td>
+          <td [ngClass]="{'red': producto.price > 1500000}" >{{producto.price | currency }}</td>
           <td>{{producto.description}}</td>
 
           <td><a href="productos/{{producto.id}}" ><button class="btn btn-outline-primary" type="button"   >Detalle</button></a></td>
